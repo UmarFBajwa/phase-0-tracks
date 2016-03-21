@@ -1,0 +1,27 @@
+.Main {
+	position: relative;
+	top: 300px;
+	left: 50%;
+}
+
+#Octopus {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+}
+
+#Glasses {
+	position: absolute;
+	top:100px;
+	left: 45px;
+	z-index: 1;
+}
+
+#Hat {
+	position: absolute;
+	top: -190px;
+	left: -60px;
+	z-index: 2;
+}
+
