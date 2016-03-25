@@ -1,3 +1,8 @@
+body {
+  font-family: Helvetica;
+  color: darkblue;
+}
+
 h1 {
   text-align: center;
 }
