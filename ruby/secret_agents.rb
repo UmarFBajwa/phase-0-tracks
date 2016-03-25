@@ -1,0 +1,49 @@
+#METHODS
+
+#Encrypt Method with Change Method to account for Z-A
+
+def encrypt(str="")
+
+  index = 0  
+  
+  while index < str.length
+    str[index] = str[index].next!
+    index += 1
+  end
+
+  puts str
+
+end
+
+#Decrypt Method with Shift Method to account for A-Z
+
+def shift(str)
+  if str == "a"
+    return "z"
+  else
+    return (str.ord-1).chr
+  end
+end
+
+def decrypt(str="")
+
+  index = 0  
+  
+  while index < str.length
+    str[index] = shift(str[index])
+    index += 1
+  end
+  puts str
+end  
+
+#RELEASE 3
+
+encrypt("abc") 
+encrypt("zed") 
+decrypt("bcd") 
+decrypt("afe")
+
+#RELEASE 4: First we use the Encrypt Method and then follow that with the Decrypt Method.
+decrypt(encrypt("The duck flies at midnight"))
+
+#RELEASE 5
