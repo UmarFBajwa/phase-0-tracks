@@ -13,11 +13,11 @@ end
 
 def encrypt(str="")
 
-  index = 0  
+index = 0  
   
   while index < str.length
-    str[index] = shiftForward(str[index])
-    index += 1
+  str[index] = shiftForward(str[index])
+  index += 1
   end
 
   puts str
