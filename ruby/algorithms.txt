@@ -1,0 +1,29 @@
+#Elevator Robot
+-For each User ask which Floor he/she would like to go to?
+	-If more than one User, ask the question to each User.
+	-If Users are together (based on visual analytics), only ask one of the Users.
+-Once all Users have been asked, organize list of Floors requested by ascending ordering.
+-Select all Floors accordingly.
+-At the first selected Floor, open the door and allow selected User/s to exit.
+	-Face User and notify that Floor "X" is here and wish them a "lovely day" or "lovely evening" depending on time.
+-Close door and begin proceeding to next selected Floor.
+-Repeat process.
+-For Users who joined as the Elevator moved:
+	-If signal in the direction headed, ask User which Floor and add to the list.
+	-If the signal is not in the direction currently heading, wait until all Users heading in such direction have exited the Elevator.
+-Repeat.
+
+#Look Fly
+-Walk to Main Closet
+-Stretch like a lion
+-Open Drawer_1
+	-Put on boxer_briefs
+	-Put on socks
+-Open Closet Door_1
+	-Put on Jeans
+	-Put on V-neck_Shirt
+-Walk to Bathroom
+	-Apply Deoderant
+	-Apply Face_Moisturizer
+	-Apply Cologne
+-Have a Great_Day
