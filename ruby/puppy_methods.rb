@@ -30,8 +30,9 @@ class Puppy
   
 end
 
-
 skip = Puppy.new
+
+#Driver Code: Call methods on instance to vertify everything works.
 
 skip.fetch("ball")
 skip.speak(5)
@@ -62,16 +63,27 @@ end
 
 sam = Cat.new
 
+#Driver Code: Calls destroy method using couch as an argument and roar method using 1 as an argument.
 sam.destroy("couch")
 sam.roar(1)
 
+#Create empty array
 Cats = []
 
+#Create 50 instances and store each into Cats array
 50.times {Cats << Cat.new}
+
+#Alternate Way to the above:
+#i = 0
+#while i < 50
+#  cat = Cat.new
+#  Cats << cat
+#  i += 1
+#end
   
 p Cats
 
-#Iterate using built in method each and call the destroy and speak methods
+#Iterate using built in method each, which selects each instance and call the destroy and speak methods
 
 Cats.each do |x|
   x.destroy("couch")
