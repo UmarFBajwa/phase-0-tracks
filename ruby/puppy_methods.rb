@@ -75,7 +75,7 @@ p Cats
 
 Cats.each do |x|
   x.destroy("couch")
-  x.speak(1)
+  x.roar(1)
 end  
 
 
