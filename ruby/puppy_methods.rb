@@ -75,7 +75,7 @@ Cats = []
 
 #Alternate Way to the above:
 #i = 0
-#while i < 50
+#while i <= 50
 #  cat = Cat.new
 #  Cats << cat
 #  i += 1
