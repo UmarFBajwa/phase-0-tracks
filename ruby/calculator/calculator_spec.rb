@@ -27,4 +27,5 @@ describe Calculator do
 
   it "divides two integers" do
     expect(calculator.divide(8,8)).to eq 1
+  end
 end
