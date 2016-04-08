@@ -1,7 +1,10 @@
-#Define new class Santa
+#Define new Santa Class
 class Santa
 
-#Defined method to initialize instance
+	attr_reader :gender, :ethnicity, :reindeer_list 
+	attr_accessor :age
+
+#Defined method to initialize Instance
 	def initialize(gender, ethnicity)
 		@gender = gender
 		@ethnicity = ethnicity
@@ -21,42 +24,75 @@ class Santa
 	end
 
 #Defined method that has an array that reindeer_ranking
-	def reindeer
-		@reindeer_ranking = ["Rudolph", "Dasher", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
+	def reindeer_ranking
+		@reindeer_list = ["Rudolph", "Dasher", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
 	end
 
+#Defined method to list various Attributes
 	def about
 		puts "Gender: #{@gender}"
 		puts "Ethnicity: #{@ethnicity}"
 		puts "Im #{@age} years old!"
 		puts "Here is a list of my reindeer:" 
-		puts reindeer
+		puts @reindeer_list
 	end	
 
-	def age(years)
-		@age = years
-		puts "I am #{@age} years old!"
+#Defined two attribute-changing methods as per RELEASE 2
+	def celebrate_birthday
+		@age = @age + 1
+		puts "It's my birthday! I am #{@age} years old!"
+	end
+
+	def get_mad_at(reindeer)
+		@reindeer_list = reindeer
 	end
 end
 
-#Created new instance
+# #Getter methods for Attributes
+# 	def gender
+# 		@gender
+# 	end
+
+# 	def ethnicity
+# 		@ethnicity
+# 	end
+
+#Setter methods for Attributes
+	# def age= (new_age)
+	# 	@age = new_age
+	# end
+
+#Created new Instance
 clausia = Santa.new("Female", "Brown")
-clausia.speak
-clausia.about
-clausia.age(50)
 
-
-#DRIVER CODE: RELEASE 0: Call methods to verify everything works...
+#DRIVER CODE RELEASE 0: Call methods to verify everything works...
 #claus.speak
 #claus.eat_milk_and_cookies("Chocolate Chip")
 
+#DRIVER CODE RELEASE 1: 
+santas = []
+example_genders = ["Male", "Female", "Unknown", "Fluid", "N/A"]
+example_ethnicities = ["Caucasian", "Brown", "Black", "Asian", "Secret", "Alien", "N/A"]
+age = 0
+example_genders.length.times do |i|
+	santas << Santa.new(example_genders[i], example_ethnicities[i])
+end
 
-#DRIVER CODE: RELEASE 1
+#DRIVER CODE RELEASE 2:
+clausia.about
+clausia.age(50)
+clausia.celebrate_birthday
+clausia.reindeer_ranking
+clausia.get_mad_at("Prancer")
+clausia.get_mad_at("Rudolph")
+p clausia = Santa.new("Female", "Brown")
 
-
-#santas = []
-#example_genders = ["Male", "Female", "Unknown", "Fluid", "N/A"]
-#example_ethnicities = ["Caucasian", "Brown", "Black", "Asian", "Secret", "Alien", "N/A"]
-#example_genders.length.times do |i|
-# santas << Santa.new(example_genders[i], example_ethnicities[i])
-# end
+#DRIVER CODE RELEASE 4:
+puts "How many random Santas do you want to create?:"
+random_santas = gets.chomp.to_i
+random_santas.times do
+	sample_santas = Santa.new( example_genders.sample, example_ethnicities.sample)
+	sample_santas.age = rand(0..1000000)
+	p sample_santas
+	p sample_santas.age
+end
