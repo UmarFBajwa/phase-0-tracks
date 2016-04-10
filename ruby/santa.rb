@@ -92,7 +92,6 @@ puts "How many random Santas do you want to create?:"
 random_santas = gets.chomp.to_i
 random_santas.times do
 	sample_santas = Santa.new( example_genders.sample, example_ethnicities.sample)
-	sample_santas.age = rand(0..1000000)
+	sample_santas_age = rand(140)
 	p sample_santas
-	p sample_santas.age
 end
