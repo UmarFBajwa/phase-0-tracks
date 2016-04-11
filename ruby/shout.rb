@@ -17,8 +17,12 @@
 #RELEASE 2
 #Create Shout module which has the method yell (makes it sounds more pissed off)
 module Shout
-	def yell(words)
+	def yell_angrily(words)
 	puts "#{words.upcase}! GRRRR :("
+	end
+
+	def yelling_happily(words)
+	puts "#{words}!!!! :) :) :)"
 	end
 end
 
@@ -34,7 +38,9 @@ end
 
 #DRIVER CODE: Test by creating new instance and calling yell method
 mob = Mob.new
-mob.yell("kill them all!")
+mob.yell_angrily("kill them all!")
+mob.yelling_happily("Yeaaahhh")
 
 girlfriend = Angry_GF.new
-girlfriend.yell("how could you?!?")
+girlfriend.yell_angrily("how could you?!?")
+girlfriend.yelling_happily("I love you")
