@@ -1,13 +1,7 @@
+require_relative 'dancer'
+
 describe Dancer do
   let(:dancer) { Dancer.new("Misty Copeland", 33) }
-
-  it "pirouettes" do
-    expect(dancer.pirouette).to eq "*twirls*"
-  end
-
-  it "bows to a partner" do
-    expect(dancer.bow).to eq "*bows*"
-  end
 
   it "has a readable name" do
     expect(dancer.name).to eq "Misty Copeland"
@@ -20,6 +14,14 @@ describe Dancer do
   it "has a writeable age" do
     dancer.age = 34
     expect(dancer.age).to eq 34
+  end
+
+  it "twirls" do
+    expect(dancer.pirouette).to eq "*twirls*"
+  end
+
+  it "bows to a partner" do
+    expect(dancer.bow).to eq "*bows*"
   end
 
   it "keeps a readable dance card" do
@@ -39,4 +41,9 @@ describe Dancer do
     expect(dancer.begin_next_dance).to eq "Now dancing with Mikhail Baryshnikov."
     expect(dancer.card).to eq ["Anna Pavlova"]
   end
+
+    it "falls" do
+      expect(dancer.fall).to eq "Misty Copeland just fell. OMG!"
+    end
+
 end
