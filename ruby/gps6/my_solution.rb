@@ -93,3 +93,18 @@ end
 
 #=======================================================================
 # Reflection Section
+
+# What are the differences between the two different hash syntaxes shown in the state_data file?
+# The differences is how we store the key and value into the hash. You can use either "key => value" or "key: value".
+
+# What does require_relative do? How is it different from require?
+# require_relative is a shortcut you can use to access date from another file in the same path. Otherwise you need to use require and enter the full path description.
+
+# What are some ways to iterate through a hash?
+# You can use .each but as parameters make sure to use |key, value|. Did not realize that when doing so initially as we haven't done so before.
+
+# When refactoring virus_effects, what stood out to you about the variables, if anything?
+# No need to use instance variables as parameters or even having to call the other methods.
+
+# What concept did you most solidify in this challenge?
+# How to iterate through hashes within a hash. Also when and when not to use instance variables as parameters.
