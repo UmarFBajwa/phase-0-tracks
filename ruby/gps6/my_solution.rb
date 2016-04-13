@@ -18,36 +18,33 @@ class VirusPredictor
     @population_density = population_density
   end
 
+
 # Method that activates two other methods below
   def virus_effects
-    predicted_deaths(@population_density, @population, @state)
-    speed_of_spread(@population_density, @state)
+    puts "#{@state} will lose #{predicted_deaths.floor} people in this outbreak and will spread across the state in #{speed_of_spread} months.\n\n"
   end
 
 # Makes all following methods not accessible for outside objects
-  private
 
+private
 # Method that takes population density value and calculates the number of deaths based if it is equal to or grather some value. Then prints of result in a statement.
-  def predicted_deaths(population_density, population, state)
+  def predicted_deaths
     # predicted deaths is solely based on population density
     if @population_density >= 200
-      number_of_deaths = (@population * 0.4).floor
+      @population * 0.4
     elsif @population_density >= 150
-      number_of_deaths = (@population * 0.3).floor
+      @population * 0.3
     elsif @population_density >= 100
-      number_of_deaths = (@population * 0.2).floor
+      @population * 0.2
     elsif @population_density >= 50
-      number_of_deaths = (@population * 0.1).floor
+      @population * 0.1
     else
-      number_of_deaths = (@population * 0.05).floor
+      @population * 0.05
     end
-
-    print "#{@state} will lose #{number_of_deaths} people in this outbreak"
-
   end
 
 # Method calculates speed of spread based on population density and prints result in a statement.
-  def speed_of_spread(population_density, state) #in months
+  def speed_of_spread #in months
     # We are still perfecting our formula here. The speed is also affected
     # by additional factors we haven't added into this functionality.
     speed = 0.0
@@ -64,8 +61,6 @@ class VirusPredictor
       speed += 2.5
     end
 
-    puts " and will spread across the state in #{speed} months.\n\n"
-
   end
 
 end
@@ -77,10 +72,10 @@ end
 
 STATE_DATA.each do |state, data|
 
-  temporary = VirusPredictor.new(state, STATE_DATA[state][:population_density], STATE_DATA[
+  name_of_state = VirusPredictor.new(state, STATE_DATA[state][:population_density], STATE_DATA[
     state][:population])
 
-  temporary.virus_effects
+  name_of_state.virus_effects
 end
 
 # alabama = VirusPredictor.new("Alabama", STATE_DATA["Alabama"][:population_density], STATE_DATA["Alabama"][:population])
