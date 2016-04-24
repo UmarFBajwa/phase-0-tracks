@@ -1,0 +1,61 @@
+Input 1: 
+SELECT * FROM businesses, users, reviews WHERE businesses.id=reviews.business_id;
+
+Output 1: 
+2|Aaron's BBQ|1|Umar|Bajwa|1|5|Great food|2|1
+2|Aaron's BBQ|2|Brian|Chung|1|5|Great food|2|1
+2|Aaron's BBQ|1|Umar|Bajwa|2|1|Horrible owner|2|2
+2|Aaron's BBQ|2|Brian|Chung|2|1|Horrible owner|2|2
+1|Sushirrito|1|Umar|Bajwa|3|5|So awesome, haven't gone|1|2
+1|Sushirrito|2|Brian|Chung|3|5|So awesome, haven't gone|1|2
+
+Input 2: Release 2, Part 2
+SELECT * FROM businesses, users, reviews WHERE users.id=reviews.user_id;
+
+Output 2:
+1|Sushirrito|1|Umar|Bajwa|1|5|Great food|2|1
+2|Aaron's BBQ|1|Umar|Bajwa|1|5|Great food|2|1
+1|Sushirrito|2|Brian|Chung|2|1|Horrible owner|2|2
+2|Aaron's BBQ|2|Brian|Chung|2|1|Horrible owner|2|2
+1|Sushirrito|2|Brian|Chung|3|5|So awesome, haven't gone|1|2
+2|Aaron's BBQ|2|Brian|Chung|3|5|So awesome, haven't gone|1|2
+
+Input 3: Release 2, Part 2
+SELECT * FROM businesses, users, reviews WHERE users.id=reviews.user_id AND businesses.id=reviews.business_id;
+
+Output 3:
+2|Aaron's BBQ|1|Umar|Bajwa|1|5|Great food|2|1
+2|Aaron's BBQ|2|Brian|Chung|2|1|Horrible owner|2|2
+1|Sushirrito|2|Brian|Chung|3|5|So awesome, haven't gone|1|2
+
+Input 4: Release 2, Part 3
+SELECT users.first_name, users.last_name, businesses.name, reviews.stars, reviews.comment FROM users, businesses JOIN reviews ON users.id=reviews.user_id AND businesses.id=reviews.business_id;
+
+Output 4:
+Umar|Bajwa|Aaron's BBQ|5|Great food
+Brian|Chung|Aaron's BBQ|1|Horrible owner
+Brian|Chung|Sushirrito|5|So awesome, haven't gone 
+
+Input 5: Release 2, Part 4
+SELECT * FROM businesses, users, reviews WHERE users.id=reviews.user_id AND businesses.id=2;
+
+Output 5:
+2|Aaron's BBQ|1|Umar|Bajwa|1|5|Great food|2|1
+2|Aaron's BBQ|2|Brian|Chung|2|1|Horrible owner|2|2
+2|Aaron's BBQ|2|Brian|Chung|3|5|So awesome, haven't gone|1|2
+
+Extra Work...
+
+Input 6: Wanted to See Only Reviews On Aaron's BBQ
+SELECT users.first_name, users.last_name, businesses.name, reviews.stars, reviews.comment FROM users, businesses JOIN reviews ON users.id=reviews.user_id AND businesses.id=reviews.business_id AND businesses.id=2;
+
+Output 6:
+Umar|Bajwa|Aaron's BBQ|5|Great food
+Brian|Chung|Aaron's BBQ|1|Horrible owner
+
+Input 7: Wanted to Only See Reviews That Had More Than 2 Stars
+SELECT users.first_name, users.last_name, businesses.name, reviews.stars, reviews.comment FROM users, businesses JOIN reviews ON users.id=reviews.user_id AND businesses.id=reviews.business_id AND reviews.stars>2;
+
+Umar|Bajwa|Aaron's BBQ|5|Great food
+Brian|Chung|Sushirrito|5|So awesome, haven't gone
+
