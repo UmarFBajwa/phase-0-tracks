@@ -1,0 +1,97 @@
+RELEASE 2:
+
+1. Display the information in one table (either table is fine).
+
+Command: SELECT * FROM guests;
+Output: 
+1|Jack|Ma|true|1|1|true|35
+2|Wynona|Ryder|false|2|1|false|30
+3|Travis|Kalanick|true|1|4|true|35
+4|Michael|Jordan|true|2|2|false|55
+5|Leo|D|false|1|2|true|40
+6|Umar|Bajwa|true|1|1|true|29
+
+Command: SELECT * FROM tables;
+Output:
+1|1|Round
+2|2|Square
+3|2|Circle
+4|4|Other
+
+2. Update an item that meets some condition (you can choose a condition that makes sense).
+
+Command: UPDATE tables SET number=3  WHERE shape="Circle";
+(Entered 2nd Command of "SELECT * FROM tables;" to show change)
+Output:
+1|1|Round
+2|2|Square
+3|3|Circle
+4|4|Other
+
+3. Display the information in both tables using one query.
+
+Command:SELECT * FROM guests, tables WHERE guests.table_num=tables.id;
+Output:
+1|Jack|Ma|true|1|1|true|35|1|1|Round
+2|Wynona|Ryder|false|2|1|false|30|1|1|Round
+3|Travis|Kalanick|true|1|4|true|35|4|4|Other
+4|Michael|Jordan|true|2|2|false|55|2|2|Square
+5|Leo|D|false|1|2|true|40|2|2|Square
+6|Umar|Bajwa|true|1|1|true|29|1|1|Round
+
+4. Display a narrower selection of columns (fewer columns than all of them, in other words) from both tables using one query.
+
+Command: SELECT guests.first_name, guests.last_name, guests.family, guests.meal_choice, guests.table_num, tables.number, tables.shape, guests.gift, guests.age FROM guests JOIN tables ON guests.table_num=tables.id;
+Output:
+Jack|Ma|true|1|1|1|Round|true|35
+Wynona|Ryder|false|2|1|1|Round|false|30
+Travis|Kalanick|true|1|4|4|Other|true|35
+Michael|Jordan|true|2|2|2|Square|false|55
+Leo|D|false|1|2|2|Square|true|40
+Umar|Bajwa|true|1|1|1|Round|true|29
+
+5. Delete an item that meets some condition (you can choose a condition that makes sense).
+
+Command: DELETE FROM guests WHERE first_name="Jack";
+(Second Command of "SELECT * FROM guests;")
+Output:
+2|Wynona|Ryder|false|2|1|false|30
+3|Travis|Kalanick|true|1|4|true|35
+4|Michael|Jordan|true|2|2|false|55
+5|Leo|D|false|1|2|true|40
+6|Umar|Bajwa|true|1|1|true|29
+
+RELEASE 3:
+
+1. Types of Joins include Inner, Left (Left Outer), Right (Right Outer), Full, Self and Cross.
+
+Sources:
+http://www.sql-join.com/
+http://www.w3schools.com/sql/sql_join.asp
+
+2. 
+
+Command: SELECT guests.first_name, guests.last_name, guests.family, guests.meal_choice, guests.table_num, tables.number, tables.shape, guests.gift, guests.age FROM guests INNER JOIN tables ON guests.table_num=tables.id;
+Output:
+Wynona|Ryder|false|2|1|1|Round|false|30
+Travis|Kalanick|true|1|4|4|Other|true|35
+Michael|Jordan|true|2|2|2|Square|false|55
+Leo|D|false|1|2|2|Square|true|40
+Umar|Bajwa|true|1|1|1|Round|true|29
+
+Command: SELECT guests.first_name, guests.last_name, guests.family, guests.meal_choice, guests.table_num, tables.number, tables.shape, guests.gift, guests.age FROM guests RIGHT JOIN tables ON guests.table_num=tables.id;
+Output: RIGHT and FULL OUTER JOINs are not currently supported
+
+Command: SELECT guests.first_name, guests.last_name, guests.family, guests.meal_choice, guests.table_num, tables.number, tables.shape, guests.gift, guests.age FROM guests LEFT JOIN tables ON guests.table_num=tables.id;
+Output:
+Wynona|Ryder|false|2|1|1|Round|false|30
+Travis|Kalanick|true|1|4|4|Other|true|35
+Michael|Jordan|true|2|2|2|Square|false|55
+Leo|D|false|1|2|2|Square|true|40
+Umar|Bajwa|true|1|1|1|Round|true|29
+
+EXTRA:
+Command: SELECT guests.first_name, guests.last_name, guests.family, guests.meal_choice, guests.table_num, tables.number, tables.shape, guests.gift, guests.age FROM guests JOIN tables ON guests.table_num=tables.id AND meal_choice=1 AND family="true";
+Output:
+Travis|Kalanick|true|1|4|4|Other|true|35
+Umar|Bajwa|true|1|1|1|Round|true|29
