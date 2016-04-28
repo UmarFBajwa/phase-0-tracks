@@ -17,15 +17,15 @@ photo.addEventListener("click", enlargePhoto);
 
 //add an event for clicking on the hot sauce button to get an animated fire gif
 //add some logic for another click to bring everything back to normal
-function showGif(event){
+function showGif(){
   document.getElementById('animation').style.visibility="visible";
 }
  
 var button = document.getElementById("myButton"); 
 button.addEventListener("click", showGif);
 
-function hideGif(event){
+function hideGif(){
   document.getElementById('animation').style.visibility="hidden"; 
 }
 var gif = document.getElementById('animation'); 
-gif.addEventListener("click", hideGif)
+gif.addEventListener("click", hideGif); 
