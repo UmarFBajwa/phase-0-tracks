@@ -6,14 +6,15 @@ img {
 #list {
   border-color: #89200D;
   border-style: double; 
-  padding-bottom: 5px;
-  margin-left: 2%;
+  margin-left: 30%;
   margin-right: 2%;
+  margin-bottom: 10%;
+  padding-right: 25px;
   display: inline-block; 
-  padding-right: 3%;
+  left: 20%;
 }
 
-.myButton {
+#myButton {
   -moz-box-shadow:inset 0px 1px 0px 0px #cf866c;
   -webkit-box-shadow:inset 0px 1px 0px 0px #cf866c;
   box-shadow:inset 0px 1px 0px 0px #cf866c;
@@ -30,8 +31,8 @@ img {
   border-radius:3px;
   border:1px solid #942911;
   display:inline-block;
-  position: absolute;
-  bottom: -35%;
+  position: fixed;
+  bottom: 10px;
   left: 2%;
   cursor:pointer;
   color:#ffffff;
@@ -41,7 +42,7 @@ img {
   text-decoration:none;
   text-shadow:0px 1px 0px #854629;
 }
-.myButton:hover {
+#myButton:hover {
   background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #bc3315), color-stop(1, #d0451b));
   background:-moz-linear-gradient(top, #bc3315 5%, #d0451b 100%);
   background:-webkit-linear-gradient(top, #bc3315 5%, #d0451b 100%);
@@ -51,7 +52,15 @@ img {
   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#bc3315', endColorstr='#d0451b',GradientType=0);
   background-color:#bc3315;
 }
-.myButton:active {
+#myButton:active {
   position:relative;
   top:1px;
+}
+#animation {
+  width: 200%;
+  height: 200%;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  visibility: inherit; 
 }
