@@ -62,7 +62,22 @@ get '/great_job' do
   end
 end
 
+# write a route that uses route parameters to add two numers and respond with the results.
 
+get '/numbers/:one/:two' do
+  answer = (params[:one].to_i) + (params[:two].to_i)
+  "#{params[:one]} + #{params[:two]} = #{answer}" 
+end
 
+#Optional bonus: Write Route that allows Users to search Database by First Name
+get '/students/age/:age' do
+  students = db.execute("SELECT * FROM students WHERE age=?", [params[:age]])
+  responses = ""
+  students.each do |student|
+    responses << "Name: #{student['name']}<br>"
+    responses << "Age: #{student['age']}<br><br>"
+  end
+    "<h1>Students With the Selected Age:</h1>" << responses
+end
 
 
