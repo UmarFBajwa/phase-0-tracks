@@ -24,7 +24,7 @@ post '/students' do
   redirect '/'
 end
 
-# still playing with this....
+# still playing with this, might have wanted to use JS or jQuery so when the User clicked the button the page would have changed...
 # to search a current student via a form
 get '/students/search_student' do
 	erb :search_student
