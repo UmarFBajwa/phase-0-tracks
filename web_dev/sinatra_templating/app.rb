@@ -24,4 +24,28 @@ post '/students' do
   redirect '/'
 end
 
+# still playing with this....
+# to search a current student via a form
+get '/students/search_student' do
+	erb :search_student
+end
+
+post '/students/search' do
+	@student = db.execute("SELECT * FROM students WHERE name=?", [params['name']])
+	puts @student
+	puts "*****"
+	redirect '/students/search_student'
+end
+
+# delete a student via a form
+get '/students/delete' do
+	erb :delete_student
+end
+
+post '/students/erase' do
+  db.execute("DELETE FROM students WHERE name=?", params['name'])
+  return
+  redirect '/'
+end
+
 # add static resources
