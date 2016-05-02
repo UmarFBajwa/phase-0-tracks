@@ -1,11 +1,11 @@
 $(document).ready(function(){
-    $("button").click(function(){
+    $("#b").click(function(){
         $(".box").toggle();
     });
 });
 
 $(document).ready(function(){
-    $("button").click(function(){
+    $("#b").click(function(){
         $("p").animate({left: '250px'});
     });
 });
