@@ -6,6 +6,6 @@ $(document).ready(function(){
 
 $(document).ready(function(){
     $("#b").click(function(){
-        $("p").animate({left: '250px'});
+        $("p").animate({right: '250px'});
     });
 });
